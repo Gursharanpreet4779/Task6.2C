@@ -56,18 +56,16 @@ pipeline {
     post {
         always {
             script {
-                echo 'Attempting to send email notification...'
-                try {
-                    emailext(
-                        subject: "Build Status: ${currentBuild.currentResult}",
-                        body: "Build #${env.BUILD_NUMBER} finished with status: ${currentBuild.currentResult}.\nCheck logs at ${env.BUILD_URL}",
-                        to: "gursharanpreetsinghsidhu38377@gmail.com",
-                        attachLog: true
-                    )
-                    echo 'Email sent successfully!'
-                } catch (Exception e) {
-                    echo "Email sending failed: ${e}"
-                }
+                echo 'Sending email notification...'
+                
+                emailext(
+                    subject: "Build Status: ${currentBuild.currentResult}",
+                    body: """
+                        Build #${env.BUILD_NUMBER} finished with status: ${currentBuild.currentResult}.
+                        Check logs at ${env.BUILD_URL}
+                    """,
+                    to: 'gursharanpreetsinghsidhu38377@gmail.com'
+                )
             }
         }
     }
