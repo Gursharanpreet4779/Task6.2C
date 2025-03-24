@@ -57,11 +57,12 @@ pipeline {
         always {
             script {
                 echo 'Sending email notification...'
-                mail (
-                    subject: "Pipeline Notification: ${JOB_NAME} - Build #${BUILD_NUMBER}",
-                    body: "The pipeline has completed. Check details at: ${BUILD_URL}",
-                    to: gursharanpreetsinghsidhu38377@gmail.com ''
-                )
+                emailext(
+    subject: "Build Failed",
+    body: "Please check the build logs.",
+    to: "gursharanpreetsinghsidhu38377@gmail.com"
+)
+
             }
         }
     }
