@@ -64,7 +64,7 @@ pipeline {
                         Build #${env.BUILD_NUMBER} finished with status: ${currentBuild.currentResult}.
                         Check logs at ${env.BUILD_URL}
                     """,
-                    to: 'gursharanpreetsinghsidhu38377@gmail.com'
+                    to: 'gursharanpreet4779.be23@chitkara.edu.in'
                 )
             }
         }
