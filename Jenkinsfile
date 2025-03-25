@@ -5,42 +5,42 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo 'Application started building...'
+                    echo 'Application is starting to build...'
                 }
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 script {
-                    echo 'Running tests...'
+                    echo 'Running unit and integration tests...'
                 }
             }
         }
         stage('Code Analysis') {
             steps {
                 script {
-                    echo 'code analysis...'
+                    echo 'Performing code analysis...'
                 }
             }
         }
         stage('Security Scan') {
             steps {
                 script {
-                    echo 'security scanning...'
+                    echo 'Performing security scan...'
                 }
             }
         }
         stage('Deploy to Staging') {
             steps {
                 script {
-                    echo 'Deploying application...'
+                    echo 'Deploying application to staging environment...'
                 }
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 script {
-                    echo 'Running integration tests...'
+                    echo 'Running integration tests on staging...'
                 }
             }
         }
@@ -58,9 +58,9 @@ pipeline {
             script {
                 echo 'Sending email notification...'
                 mail (
-                    subject: "Pipeline Notification: ${JOB_NAME} - Build #${BUILD_NUMBER}",
-                    body: "The pipeline has completed. Check details at: ${BUILD_URL}",
-                    to: ‘gursharanpreet4779.be23@chitkara.edu.in'
+                    subject: "Pipeline Notification: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
+                    body: "The pipeline has completed. Check details at: ${env.BUILD_URL}",
+                    to: 'gursharanpreet4779.be23@chitkara.edu.in'
                 )
             }
         }
